@@ -134,4 +134,29 @@
   }
 }
 
+#main {
+  margin-left: 320px;
+  padding: 30px;
+}
+#main .main .menu {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  #main {
+    margin-left: 0px;
+    padding: 0px;
+  }
+}
+
+#main .main .table {
+  overflow-x: hidden;
+}
+#main .main .table table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
 /*# sourceMappingURL=main.css.map */
