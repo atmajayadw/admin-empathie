@@ -1,0 +1,16 @@
+#client {
+  .client {
+    .btn-edit,
+    .btn-addphoto {
+      width: 120px;
+      margin: 5px 0;
+    }
+
+    .btn-edit {
+      color: white;
+    }
+  }
+  @media (min-width: 992px) {
+    margin-left: 320px;
+  }
+}

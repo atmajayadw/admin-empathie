@@ -96,9 +96,7 @@ export default class Table extends Component {
                         search: "?clientID=" + result.client_id,
                       }}
                     >
-                      <span className="btn btn-warning btn-edit mr-2">
-                        Edit
-                      </span>
+                      <span className="btn btn-info btn-edit mr-2">Detail</span>
                     </Link>
                     <span
                       className="btn btn-danger btn-delete"

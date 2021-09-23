@@ -159,19 +159,37 @@
   border: 1px solid #ddd;
 }
 
-#add {
+#add,
+#update {
   margin-left: 320px;
   padding: 30px;
 }
 #add #preview,
-#add #thumbnail {
+#add #thumbnail,
+#update #preview,
+#update #thumbnail {
   width: 320px;
   margin-top: 20px;
 }
 @media (max-width: 992px) {
-  #add {
+  #add,
+#update {
     margin-left: 0px;
     padding: 0px;
+  }
+}
+
+#client .client .btn-edit,
+#client .client .btn-addphoto {
+  width: 120px;
+  margin: 5px 0;
+}
+#client .client .btn-edit {
+  color: white;
+}
+@media (min-width: 992px) {
+  #client {
+    margin-left: 320px;
   }
 }
 
