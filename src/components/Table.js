@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import qs from "qs";
 
 export default class Table extends Component {
   constructor(props) {
@@ -15,12 +16,8 @@ export default class Table extends Component {
     this.getAllData();
   }
 
-  //   componentDidUpdate() {
-  //     console.log(this.state.result);
-  //   }
-
   getAllData = () => {
-    const URL = "https://jjphoto-rest-server.atmajayadw.site/api/client/";
+    const URL = "http://localhost/empathie-rest-server/api/client/";
     axios
       .get(URL)
       .then((res) => {
@@ -30,6 +27,32 @@ export default class Table extends Component {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  handleDelete = (client_id) => {
+    if (window.confirm("Anda Yakin?")) {
+      const URL = "http://localhost/empathie-rest-server/api/client/";
+      axios({
+        method: "delete",
+        url: URL,
+        data: qs.stringify({
+          client_id: client_id,
+        }),
+        headers: {
+          "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+        },
+      })
+        .then((res) => {
+          alert("berhasil!");
+          this.getAllData();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(client_id);
+    } else {
+      return false;
+    }
   };
 
   render() {
@@ -59,7 +82,7 @@ export default class Table extends Component {
                   <td>
                     <img
                       src={
-                        "https://jjphoto-rest-server.atmajayadw.site/uploads/thumbnail/" +
+                        "http://localhost/empathie-rest-server/uploads/thumbnail/" +
                         result.thumbnail
                       }
                       width={200}
