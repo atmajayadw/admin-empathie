@@ -169,7 +169,6 @@ export default class Add extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  id="client"
                   name="client"
                   placeholder="Nama Client"
                   onChange={(event) => this.handleChange(event)}

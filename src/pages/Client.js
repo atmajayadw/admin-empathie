@@ -91,19 +91,19 @@ export default class Client extends Component {
               </div>
 
               <div className="col-md d-flex justify-content-lg-end mr-5">
-                <img
-                  className="mt-3 "
-                  // src={
-                  //   "http://localhost/empathie-rest-server/uploads/thumbnail/" +
-                  //   result.thumbnail
-                  // }
-
-                  src={
-                    "http://localhost/empathie-rest-server/uploads/thumbnail/614cae7364683.jpg"
-                  }
-                  width={200}
-                  alt=""
-                />
+                {result &&
+                  result.map((res, index) => (
+                    <img
+                      className="mt-3 "
+                      src={
+                        "http://localhost/empathie-rest-server/uploads/thumbnail/" +
+                        res.thumbnail
+                      }
+                      key={index}
+                      width={200}
+                      alt=""
+                    />
+                  ))}
               </div>
             </div>
           </div>
