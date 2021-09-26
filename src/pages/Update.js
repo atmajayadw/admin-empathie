@@ -18,6 +18,7 @@ export default class Update extends Component {
       thumbnail: "",
       status: "",
       result: [],
+      porto_client_id: "",
     };
   }
 
@@ -44,10 +45,28 @@ export default class Update extends Component {
           old_client_id: result.data[0].client_id,
           id: result.data[0].id,
         });
-        // this.getPortfolio();
+        this.getPortfolio();
       })
       .catch((error) => {
         console.log(error);
+      });
+  };
+
+  getPortfolio = () => {
+    const URL = "http://localhost/empathie-rest-server/api/portfolio/";
+    axios
+      .get(URL, { params: { client_id: this.state.client_id } })
+      .then((res) => {
+        const portfolio = res.data;
+        this.setState({
+          porto_client_id: portfolio.data[0].client_id,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          porto_client_id: this.state.old_client_id,
+        });
       });
   };
 
@@ -195,9 +214,7 @@ export default class Update extends Component {
         .post(URL, data)
         .then((res) => {
           console.log(res);
-          alert("Data updated!");
-          document.location.href = "/dashboard";
-          // this.updatePortfolio();
+          this.updatePortfolio();
         })
         .catch((error) => {
           console.log(error.response);
@@ -218,11 +235,34 @@ export default class Update extends Component {
           console.log(res);
           alert("Data updated!");
           document.location.href = "/dashboard";
+          this.updatePortfolio();
         })
         .catch((error) => {
           console.log(error.response);
         });
     }
+  };
+
+  updatePortfolio = () => {
+    const old_client_id = this.state.porto_client_id;
+    const new_client_id = this.state.client_id;
+    const URL = "http://localhost/empathie-rest-server/api/portfolio/";
+
+    const data = {
+      old_client_id: old_client_id,
+      new_client_id: new_client_id,
+    };
+
+    axios
+      .put(URL, data)
+      .then((res) => {
+        console.log(res);
+        alert("Data updated!");
+        document.location.href = "/dashboard";
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
   render() {

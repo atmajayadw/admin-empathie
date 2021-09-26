@@ -43,7 +43,7 @@ const Navbar = () => {
           <div className="menu">
             <ul>
               <li>
-                <a href="!#" className="active">
+                <a href="/dashboard" className="active">
                   Dashboard
                 </a>
               </li>
