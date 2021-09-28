@@ -1,7 +1,7 @@
 #topbar {
   padding: 10px 0;
   width: 100%;
-  background-color: burlywood;
+  background-color: #f2f2f2;
   z-index: 1;
 }
 #topbar .topbar {
@@ -59,14 +59,17 @@
 #topbar .topbar .user h5 {
   margin: auto;
   text-align: right;
-  color: whitesmoke;
+  color: #343a40;
   line-height: 50px;
   font-weight: 300;
 }
 #topbar .topbar .user h5 span {
-  color: whitesmoke;
+  color: #343a40;
 }
 @media (max-width: 992px) {
+  #topbar {
+    background-color: #343a40;
+  }
   #topbar .topbar .logo {
     margin-left: 20px;
     display: flex;
@@ -85,13 +88,12 @@
   visibility: hidden;
   width: 0px;
   height: 100vh;
-  background-color: burlywood;
+  background-color: #343a40;
   position: absolute;
   top: 0;
   z-index: 2;
   transition: 0.5s;
   opacity: 0;
-  border-right: 1px solid #525252;
 }
 #sidebar .sidebar.active {
   visibility: visible;
