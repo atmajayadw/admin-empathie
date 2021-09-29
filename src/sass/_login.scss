@@ -1,0 +1,14 @@
+#login {
+  .container {
+    display: flex;
+    height: 100vh;
+    .login {
+      width: 480px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: #343a40;
+      color: white;
+    }
+  }
+}

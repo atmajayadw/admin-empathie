@@ -15,13 +15,16 @@ export default class Client extends Component {
       date: "",
       client_id: "",
       result: [],
-      // photos: [],
-      // photo: "",
     };
   }
 
   componentDidMount() {
-    this.getClient();
+    if (this.props.checkLoginStatus() === false) {
+      alert("Please login first!");
+      document.location.href = "/";
+    } else {
+      this.this.getClient();
+    }
   }
 
   getClient = () => {
@@ -55,7 +58,7 @@ export default class Client extends Component {
 
     return (
       <>
-        <Navbar />
+        <Navbar user={this.props.user.username} />
         <section id="client">
           <div className="container client">
             <div className="row">

@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Table from "../components/Table";
+
 export default class Dashboard extends Component {
+  componentDidMount() {
+    if (this.props.checkLoginStatus() === false) {
+      alert("Please login first!");
+      document.location.href = "/";
+    }
+  }
+
   render() {
     return (
       <>
-        <Navbar />
+        <Navbar user={this.props.user.username} />
         <section id="main">
           <div className="container main">
             <div className="menu">
@@ -26,7 +34,7 @@ export default class Dashboard extends Component {
                   to={{
                     pathname: "/",
                   }}
-                  onClick={() => this.handleLogoutClick()}
+                  onClick={() => this.props.handleLogout()}
                 >
                   <span className="btn btn-danger">Logout</span>
                 </Link>

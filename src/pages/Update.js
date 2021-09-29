@@ -23,7 +23,12 @@ export default class Update extends Component {
   }
 
   componentDidMount() {
-    this.getClient();
+    if (this.props.checkLoginStatus() === false) {
+      alert("Please login first!");
+      document.location.href = "/";
+    } else {
+      this.getClient();
+    }
   }
 
   getClient = () => {
@@ -270,7 +275,7 @@ export default class Update extends Component {
 
     return (
       <>
-        <Navbar />
+        <Navbar user={this.props.user.username} />
         <section id="update">
           <div className="container update">
             {result &&

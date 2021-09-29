@@ -18,6 +18,13 @@ export default class Add extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.checkLoginStatus() === false) {
+      alert("Please login first!");
+      document.location.href = "/";
+    }
+  }
+
   handleChange = (event) => {
     this.setState(
       {
@@ -160,7 +167,7 @@ export default class Add extends Component {
   render() {
     return (
       <>
-        <Navbar />
+        <Navbar user={this.props.user.username} />
         <section id="add">
           <div className="container add">
             <form encType="multipart/form-data">

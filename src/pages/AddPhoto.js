@@ -16,7 +16,12 @@ export default class AddPhoto extends Component {
   }
 
   componentDidMount() {
-    this.getClientID();
+    if (this.props.checkLoginStatus() === false) {
+      alert("Please login first!");
+      document.location.href = "/";
+    } else {
+      this.getClientID();
+    }
   }
 
   getClientID = () => {
@@ -92,7 +97,7 @@ export default class AddPhoto extends Component {
   render() {
     return (
       <>
-        <Navbar />
+        <Navbar user={this.props.user.username} />
         <section id="addPhoto">
           <div className="container addPhoto mt-2">
             <h2>Add Photo</h2>

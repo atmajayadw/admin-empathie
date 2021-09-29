@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../assets/icons/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const showNavbar = () => {
     const span = document.querySelectorAll(".hamburger span");
     const sidebar = document.querySelector(".sidebar");
@@ -28,7 +28,7 @@ const Navbar = () => {
 
           <div className="user">
             <h5>
-              Hallo, <span>User</span>
+              Hallo, <span>{user}</span>
             </h5>
           </div>
         </div>
